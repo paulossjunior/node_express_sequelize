@@ -18,4 +18,5 @@ module.exports = (app) => {
 
     app.get('/api/candidatos',candidatoController.list);
     app.get('/api/candidatos/all', candidatoController.list_find_all);
+    app.get('/api/candidatos/:cpf', candidatoController.concursos_valiados);
   };

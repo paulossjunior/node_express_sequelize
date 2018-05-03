@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-cucumber": "./node_modules/.bin/cucumber-js ./test/features -r ./test/steps"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,8 @@
     "swagger-ui-express": "^3.0.8"
   },
   "devDependencies": {
-    "nodemon": "^1.17.3"
+    "cucumber": "^4.2.1",
+    "nodemon": "^1.17.3",
+    "selenium-cucumber-js": "^1.5.12"
   }
 }

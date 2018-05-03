@@ -1,5 +1,6 @@
 const Candidato = require('../models').Candidato;
 const Profissao = require('../models').Profissao;
+const Concurso = require('../models').Concurso;
 
 module.exports = {
     
@@ -19,5 +20,21 @@ module.exports = {
           })
           .then(candidatos => res.status(200).send(candidatos))
           .catch(error => res.status(400).send(error));
-      }
+      },
+  concursos_valiados (req,res){
+    return Candidato
+          .findOne(
+            { 
+              where: {cpf: req.params.cpf},
+              include: [{
+                model: Profissao,
+                as: 'profissoes',
+                attributes: ['id','nome'],                                                                                                
+              }],
+              attributes: ['cpf']            
+          } 
+          )
+          .then(candidatos => res.status(200).send(candidatos))
+          .catch(error => res.status(400).send(error));
+  },
 };  
