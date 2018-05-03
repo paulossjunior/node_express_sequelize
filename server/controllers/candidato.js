@@ -29,7 +29,12 @@ module.exports = {
               include: [{
                 model: Profissao,
                 as: 'profissoes',
-                attributes: ['id','nome'],                                                                                                
+                attributes: ['id','nome'],
+                include: [{
+                  model: Concurso,
+                  as: 'concursos',
+                  through: 'Candidato_Profissao',                                                                                                
+                }],                                                                                                
               }],
               attributes: ['cpf']            
           } 
